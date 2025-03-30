@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAKARI COMMUNITY</title>
+    <meta name="description" content="Descubre los mejores juegos gratis en HAKARI COMMUNITY. Únete a nuestra comunidad de gamers.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Oxanium:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6C5CE7;
+            --primary-dark: #5649C0;
+            --secondary: #FD79A8;
+            --accent: #00B894;
+            --dark: #2D3436;
+            --darker: #1A1E1F;
+            --light: #F5F6FA;
+            --gray: #636E72;
+            --light-gray: #DFE6E9;
+            --discord: #5865F2;
+            --discord-dark: #4752C4;
+            --rating: #FFD700;
+            --popular: #E84393;
+            --new: #00CEC9;
+            --trending: #FDCB6E;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.05);
+            --shadow-xl: 0 20px 40px rgba(0,0,0,0.2);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --border-radius: 12px;
+            --border-radius-sm: 6px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Oxanium', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(26, 30, 31, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            padding: 10px 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light);
+        }
+
+        .logo i {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--light-gray);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            min-height: 800px;
+            background: linear-gradient(rgba(26, 30, 31, 0.9), rgba(26, 30, 31, 0.7)), 
+                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--light);
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(108, 92, 231, 0.5);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--light);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(108, 92, 231, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .btn-discord {
+            background-color: var(--discord);
+            color: var(--light);
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+        }
+
+        .btn-discord:hover {
+            background-color: var(--discord-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(88, 101, 242, 0.5);
+        }
+
+        /* Search */
+        .search-section {
+            background-color: var(--dark);
+            padding: 60px 0;
+            margin-top: -100px;
+            position: relative;
+            z-index: 10;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .search-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .search-box {
+            display: flex;
+            background-color: var(--darker);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 18px 25px;
+            border: none;
+            background: transparent;
+            color: var(--light);
+            font-size: 1.1rem;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: var(--gray);
+        }
+
+        .search-btn {
+            background-color: var(--primary);
+            color: var(--light);
+            border: none;
+            padding: 0 30px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .search-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .search-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .filter-btn {
+            background-color: transparent;
+            color: var(--light-gray);
+            border: 1px solid var(--gray);
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: var(--light);
+        }
+
+        /* Games Section */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .game-card {
+            background-color: var(--dark);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .game-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .badge-popular {
+            background-color: var(--popular);
+            color: var(--light);
+        }
+
+        .badge-new {
+            background-color: var(--new);
+            color: var(--darker);
+        }
+
+        .badge-trending {
+            background-color: var(--trending);
+            color: var(--darker);
+        }
+
+        .game-media {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .game-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .game-card:hover .game-image {
+            transform: scale(1.05);
+        }
+
+        .game-content {
+            padding: 20px;
+        }
+
+        .game-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .game-rating {
+            color: var(--rating);
+            font-size: 0.9rem;
+        }
+
+        .game-rating i {
+            margin-right: 3px;
+        }
+
+        .game-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .game-meta-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .game-meta-item i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+
+        .game-desc {
+            color: var(--light-gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .game-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .game-price {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .game-price.free {
+            color: var(--accent);
+        }
+
+        .game-btn {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            border-radius: var(--border-radius-sm);
+        }
+
+        /* Featured Games */
+        .featured-games {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-slider {
+            display: flex;
+            gap: 30px;
+            padding: 20px 0;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+
+        .featured-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .featured-game {
+            min-width: 500px;
+            height: 300px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+            scroll-snap-align: start;
+        }
+
+        .featured-game img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        }
+
+        .featured-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .featured-desc {
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Categories */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background-color: var(--dark);
+            border-radius: var(--border-radius);
+            padding: 30px 20px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            background-color: var(--primary);
+        }
+
+        .category-card:hover .category-icon {
+            background-color: var(--light);
+            color: var(--primary);
+        }
+
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background-color: var(--primary);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            transition: var(--transition);
+        }
+
+        .category-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .category-count {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Discord CTA */
+        .discord-cta {
+            background: linear-gradient(135deg, var(--discord), var(--discord-dark));
+            border-radius: var(--border-radius);
+            padding: 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .discord-cta::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .discord-cta::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .discord-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .discord-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+
+        .discord-desc {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Game Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 40px 20px;
+        }
+
+        .modal-content {
+            background-color: var(--dark);
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 25px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--light);
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .modal-subtitle {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .game-details {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 30px;
+        }
+
+        .game-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .game-gallery img {
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .game-gallery img:hover {
+            transform: scale(1.02);
+        }
+
+        .game-gallery img:first-child {
+            grid-column: span 2;
+        }
+
+        .game-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .game-description {
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .game-features {
+            margin-bottom: 30px;
+        }
+
+        .game-features ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            list-style: none;
+        }
+
+        .game-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .game-features i {
+            color: var(--primary);
+        }
+
+        .requirements {
+            background-color: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: var(--border-radius-sm);
+            margin-top: 30px;
+        }
+
+        .requirements h4 {
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .requirements-list {
+            list-style: none;
+        }
+
+        .requirements-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .requirements-list i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background-color: rgba(0,0,0,0.2);
+        }
+
+        .game-price-lg {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .game-price-lg.free {
+            color: var(--accent);
+        }
+
+        .btn-lg {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .footer-links i {
+            font-size: 0.8rem;
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            color: var(--light-gray);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+        }
+
+        .copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .featured-game {
+                min-width: 400px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .game-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .game-gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .requirements-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: var(--dark);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 40px 30px;
+                transition: var(--transition);
+                z-index: 999;
+                box-shadow: var(--shadow-lg);
+            }
+            
+            .nav.active {
+                left: 0;
+            }
+            
+            .nav-list {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .nav-item {
+                margin: 0 0 20px 0;
+                width: 100%;
+            }
+            
+            .nav-link {
+                padding: 10px 0;
+                font-size: 1.1rem;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .featured-game {
+                min-width: 300px;
+                height: 250px;
+            }
+            
+            .featured-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .search-box {
+                flex-direction: column;
+            }
+            
+            .search-input {
+                width: 100%;
+                padding: 15px;
+            }
+            
+            .search-btn {
+                width: 100%;
+                padding: 15px;
+            }
+            
+            .modal-header {
+                padding: 20px;
+            }
+            
+            .modal-title {
+                font-size: 1.5rem;
+            }
+            
+            .modal-footer {
+                flex-direction: column;
+                gap: 20px;
+                align-items: flex-start;
+            }
+            
+            .btn-lg {
+                width: 100%;
+            }
+            
+            .game-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-gamepad"></i>
+                HAKARI<span>COMMUNITY</span>
+            </a>
+            
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                            <i class="fas fa-home"></i> Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#popular" class="nav-link">
+                            <i class="fas fa-fire"></i> Populares
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#games" class="nav-link">
+                            <i class="fas fa-gamepad"></i> Juegos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#categories" class="nav-link">
+                            <i class="fas fa-tags"></i> Categorías
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://discord.com/invite/4BgUzQ4A5w" class="nav-link" target="_blank">
+                            <i class="fab fa-discord"></i> Discord
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Descubre los mejores juegos gratis</h1>
+                <p class="hero-subtitle">
+                    Únete a nuestra comunidad de gamers y accede a cientos de juegos gratuitos, 
+                    reseñas, guías y mucho más. Todo en un solo lugar.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#games" class="btn btn-primary">
+                        <i class="fas fa-gamepad"></i> Explorar Juegos
+                    </a>
+                    <a href="https://discord.com/invite/4BgUzQ4A5w" class="btn btn-discord" target="_blank">
+                        <i class="fab fa-discord"></i> Unirse a Discord
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container search-container">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Buscar juegos...">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="search-filters">
+                <button class="filter-btn active">Todos</button>
+                <button class="filter-btn">Acción</button>
+                <button class="filter-btn">Aventura</button>
+                <button class="filter-btn">RPG</button>
+                <button class="filter-btn">Estrategia</button>
+                <button class="filter-btn">Deportes</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Games -->
+    <section class="section" id="popular">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Juegos Populares</h2>
+                <p class="section-subtitle">
+                    Los juegos más descargados y valorados por nuestra comunidad
+                </p>
+            </div>
+            
+            <div class="games-grid">
+                <!-- Game 1 -->
+                <div class="game-card" onclick="openModal('game1')">
+                    <div class="game-badge badge-popular">POPULAR</div>
+                    <div class="game-media">
+                        <img src="https://cdn.discordapp.com/attachments/1278514498726002690/1355670140695478544/lu9GGul.jpeg?ex=67e9c5b4&is=67e87434&hm=bdd14271bf2c8a4cf1b3e004584ca4e5f4188158357adbd996d1a2a85a099745&" alt="Genshin Impact" class="game-image">
+                    </div>
+                    <div class="game-content">
+                        <div class="game-title">
+                            <h3>R.E.P.O</h3>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i> 4.8
+                            </div>
+                        </div>
+                        <div class="game-meta">
+                            <div class="game-meta-item">
+                                <i class="fas fa-tag"></i> RPG
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fas fa-download"></i> 35GB
+                            </div>
+                        </div>
+                        <p class="game-desc">
+                            Explora el vasto mundo de Teyvat en este RPG de acción de mundo abierto con elementos gacha.
+                        </p>
+                        <div class="game-footer">
+                            <div class="game-price free">GRATIS</div>
+                            <button class="btn btn-primary game-btn">Ver más</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game 2 -->
+                <div class="game-card" onclick="openModal('game2')">
+                    <div class="game-badge badge-trending">TRENDING</div>
+                    <div class="game-media">
+                        <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Valorant" class="game-image">
+                    </div>
+                    <div class="game-content">
+                        <div class="game-title">
+                            <h3>Valorant</h3>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i> 4.7
+                            </div>
+                        </div>
+                        <div class="game-meta">
+                            <div class="game-meta-item">
+                                <i class="fas fa-tag"></i> FPS
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fas fa-download"></i> 12GB
+                            </div>
+                        </div>
+                        <p class="game-desc">
+                            Juego de disparos táctico 5v5 con personajes únicos y habilidades especiales.
+                        </p>
+                        <div class="game-footer">
+                            <div class="game-price free">GRATIS</div>
+                            <button class="btn btn-primary game-btn">Ver más</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game 3 -->
+                <div class="game-card" onclick="openModal('game3')">
+                    <div class="game-badge badge-new">NUEVO</div>
+                    <div class="game-media">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="League of Legends" class="game-image">
+                    </div>
+                    <div class="game-content">
+                        <div class="game-title">
+                            <h3>League of Legends</h3>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i> 4.5
+                            </div>
+                        </div>
+                        <div class="game-meta">
+                            <div class="game-meta-item">
+                                <i class="fas fa-tag"></i> MOBA
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fas fa-download"></i> 8GB
+                            </div>
+                        </div>
+                        <p class="game-desc">
+                            El MOBA más popular del mundo con más de 140 campeones para dominar.
+                        </p>
+                        <div class="game-footer">
+                            <div class="game-price free">GRATIS</div>
+                            <button class="btn btn-primary game-btn">Ver más</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Games -->
+    <section class="section featured-games">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Destacados</h2>
+                <p class="section-subtitle">
+                    Los juegos que están dando de qué hablar esta semana
+                </p>
+            </div>
+            
+            <div class="featured-slider">
+                <!-- Featured Game 1 -->
+                <div class="featured-game" onclick="openModal('game4')">
+                    <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Featured Game">
+                    <div class="featured-content">
+                        <h3 class="featured-title">Apex Legends</h3>
+                        <p class="featured-desc">
+                            Battle Royale gratuito con personajes únicos y un sistema de ping revolucionario.
+                        </p>
+                        <button class="btn btn-primary">Ver detalles</button>
+                    </div>
+                </div>
+                
+                <!-- Featured Game 2 -->
+                <div class="featured-game" onclick="openModal('game5')">
+                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Featured Game">
+                    <div class="featured-content">
+                        <h3 class="featured-title">Fortnite</h3>
+                        <p class="featured-desc">
+                            Combina disparos con construcción en este popular Battle Royale con eventos en vivo.
+                        </p>
+                        <button class="btn btn-primary">Ver detalles</button>
+                    </div>
+                </div>
+                
+                <!-- Featured Game 3 -->
+                <div class="featured-game" onclick="openModal('game6')">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Featured Game">
+                    <div class="featured-content">
+                        <h3 class="featured-title">Dota 2</h3>
+                        <p class="featured-desc">
+                            MOBA complejo y estratégico con profundidad táctica y un competitivo profesional masivo.
+                        </p>
+                        <button class="btn btn-primary">Ver detalles</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Games -->
+    <section class="section" id="games">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Todos los Juegos</h2>
+                <p class="section-subtitle">
+                    Explora nuestra amplia colección de juegos gratuitos
+                </p>
+            </div>
+            
+            <div class="games-grid">
+                <!-- Game 4 -->
+                <div class="game-card" onclick="openModal('game4')">
+                    <div class="game-media">
+                        <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Apex Legends" class="game-image">
+                    </div>
+                    <div class="game-content">
+                        <div class="game-title">
+                            <h3>Apex Legends</h3>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i> 4.6
+                            </div>
+                        </div>
+                        <div class="game-meta">
+                            <div class="game-meta-item">
+                                <i class="fas fa-tag"></i> Battle Royale
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fas fa-download"></i> 40GB
+                            </div>
+                        </div>
+                        <p class="game-desc">
+                            Battle Royale gratuito con personajes únicos y un sistema de ping revolucionario.
+                        </p>
+                        <div class="game-footer">
+                            <div class="game-price free">GRATIS</div>
+                            <button class="btn btn-primary game-btn">Ver más</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game 5 -->
+                <div class="game-card" onclick="openModal('game5')">
+                    <div class="game-media">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Fortnite" class="game-image">
+                    </div>
+                    <div class="game-content">
+                        <div class="game-title">
+                            <h3>Fortnite</h3>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i> 4.3
+                            </div>
+                        </div>
+                        <div class="game-meta">
+                            <div class="game-meta-item">
+                                <i class="fas fa-tag"></i> Battle Royale
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fas fa-download"></i> 30GB
+                            </div>
+                        </div>
+                        <p class="game-desc">
+                            Combina disparos con construcción en este popular Battle Royale con eventos en vivo.
+                        </p>
+                        <div class="game-footer">
+                            <div class="game-price free">GRATIS</div>
+                            <button class="btn btn-primary game-btn">Ver más</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game 6 -->
+                <div class="game-card" onclick="openModal('game6')">
+                    <div class="game-media">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Dota 2" class="game-image">
+                    </div>
+                    <div class="game-content">
+                        <div class="game-title">
+                            <h3>Dota 2</h3>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i> 4.4
+                            </div>
+                        </div>
+                        <div class="game-meta">
+                            <div class="game-meta-item">
+                                <i class="fas fa-tag"></i> MOBA
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fas fa-download"></i> 15GB
+                            </div>
+                        </div>
+                        <p class="game-desc">
+                            MOBA complejo y estratégico con profundidad táctica y un competitivo profesional masivo.
+                        </p>
+                        <div class="game-footer">
+                            <div class="game-price free">GRATIS</div>
+                            <button class="btn btn-primary game-btn">Ver más</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game 7 -->
+                <div class="game-card" onclick="openModal('game7')">
+                    <div class="game-media">
+                        <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Warframe" class="game-image">
+                    </div>
+                    <div class="game-content">
+                        <div class="game-title">
+                            <h3>Warframe</h3>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i> 4.2
+                            </div>
+                        </div>
+                        <div class="game-meta">
+                            <div class="game-meta-item">
+                                <i class="fas fa-tag"></i> Shooter
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fas fa-download"></i> 35GB
+                            </div>
+                        </div>
+                        <p class="game-desc">
+                            Juego de acción cooperativo con ninjas espaciales, personalización profunda y combate fluido.
+                        </p>
+                        <div class="game-footer">
+                            <div class="game-price free">GRATIS</div>
+                            <button class="btn btn-primary game-btn">Ver más</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game 8 -->
+                <div class="game-card" onclick="openModal('game8')">
+                    <div class="game-media">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Path of Exile" class="game-image">
+                    </div>
+                    <div class="game-content">
+                        <div class="game-title">
+                            <h3>Path of Exile</h3>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i> 4.5
+                            </div>
+                        </div>
+                        <div class="game-meta">
+                            <div class="game-meta-item">
+                                <i class="fas fa-tag"></i> ARPG
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fas fa-download"></i> 25GB
+                            </div>
+                        </div>
+                        <p class="game-desc">
+                            RPG de acción oscuro y complejo con un sistema de pasivas masivo y temporadas regulares.
+                        </p>
+                        <div class="game-footer">
+                            <div class="game-price free">GRATIS</div>
+                            <button class="btn btn-primary game-btn">Ver más</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game 9 -->
+                <div class="game-card" onclick="openModal('game9')">
+                    <div class="game-media">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Rocket League" class="game-image">
+                    </div>
+                    <div class="game-content">
+                        <div class="game-title">
+                            <h3>Rocket League</h3>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i> 4.7
+                            </div>
+                        </div>
+                        <div class="game-meta">
+                            <div class="game-meta-item">
+                                <i class="fas fa-tag"></i> Deportes
+                            </div>
+                            <div class="game-meta-item">
+                                <i class="fas fa-download"></i> 10GB
+                            </div>
+                        </div>
+                        <p class="game-desc">
+                            Fútbol con coches acrobáticos en este divertido y competitivo juego multijugador.
+                        </p>
+                        <div class="game-footer">
+                            <div class="game-price free">GRATIS</div>
+                            <button class="btn btn-primary game-btn">Ver más</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="section" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Categorías</h2>
+                <p class="section-subtitle">
+                    Explora juegos por categorías y encuentra lo que más te gusta
+                </p>
+            </div>
+            
+            <div class="categories-grid">
+                <!-- Category 1 -->
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h4 class="category-title">Acción</h4>
+                    <div class="category-count">125 Juegos</div>
+                </div>
+                
+                <!-- Category 2 -->
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-hat-wizard"></i>
+                    </div>
+                    <h4 class="category-title">Aventura</h4>
+                    <div class="category-count">87 Juegos</div>
+                </div>
+                
+                <!-- Category 3 -->
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-dragon"></i>
+                    </div>
+                    <h4 class="category-title">RPG</h4>
+                    <div class="category-count">64 Juegos</div>
+                </div>
+                
+                <!-- Category 4 -->
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <h4 class="category-title">Estrategia</h4>
+                    <div class="category-count">53 Juegos</div>
+                </div>
+                
+                <!-- Category 5 -->
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <h4 class="category-title">Deportes</h4>
+                    <div class="category-count">42 Juegos</div>
+                </div>
+                
+                <!-- Category 6 -->
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-ghost"></i>
+                    </div>
+                    <h4 class="category-title">Terror</h4>
+                    <div class="category-count">36 Juegos</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discord CTA -->
+    <section class="section">
+        <div class="container">
+            <div class="discord-cta">
+                <div class="discord-content">
+                    <h3 class="discord-title">Únete a nuestra comunidad en Discord</h3>
+                    <p class="discord-desc">
+                        Conéctate con miles de jugadores, participa en eventos exclusivos, recibe soporte 
+                        y mantente al día con las últimas novedades de los juegos que te encantan.
+                    </p>
+                    <a href="https://discord.com/invite/4BgUzQ4A5w" class="btn btn-discord btn-lg" target="_blank">
+                        <i class="fab fa-discord"></i> Unirse ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Modal -->
+    <div class="modal" id="gameModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalGameTitle">Genshin Impact</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+                <div class="modal-subtitle">
+                    <span id="modalGameGenre">RPG • Aventura</span>
+                    <span id="modalGameSize"><i class="fas fa-download"></i> 35GB</span>
+                    <span id="modalGameRating"><i class="fas fa-star"></i> 4.8</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="game-details">
+                    <div class="game-gallery">
+                        <img id="modalGameImage" src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Game Screenshot">
+                        <img src="https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Game Screenshot">
+                        <img src="https://images.unsplash.com/photo-1633613286991-611fe299c4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Game Screenshot">
+                    </div>
+                    <div class="game-info">
+                        <h3>Descripción</h3>
+                        <p class="game-description" id="modalGameDesc">
+                            Genshin Impact es un RPG de acción de mundo abierto con elementos gacha. 
+                            Explora el vasto mundo de Teyvat, descubre secretos, completa misiones 
+                            y desbloquea personajes únicos con habilidades especiales. Con gráficos 
+                            impresionantes y una jugabilidad fluida, Genshin Impact ofrece cientos 
+                            de horas de contenido con actualizaciones regulares que añaden nuevas 
+                            regiones, personajes y eventos.
+                        </p>
+                        
+                        <h3>Características principales</h3>
+                        <div class="game-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Mundo abierto masivo para explorar</li>
+                                <li><i class="fas fa-check"></i> Sistema de combate elemental</li>
+                                <li><i class="fas fa-check"></i> Más de 40 personajes jugables</li>
+                                <li><i class="fas fa-check"></i> Cooperativo para 4 jugadores</li>
+                                <li><i class="fas fa-check"></i> Actualizaciones gratuitas regulares</li>
+                                <li><i class="fas fa-check"></i> Compatible con cross-play</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="requirements">
+                            <h4>Requisitos del sistema</h4>
+                            <div class="requirements-grid">
+                                <div>
+                                    <h5>Mínimos</h5>
+                                    <ul class="requirements-list" id="modalGameReqMin">
+                                        <li><i class="fas fa-check"></i> SO: Windows 7 SP1 64-bit</li>
+                                        <li><i class="fas fa-check"></i> Procesador: Intel Core i5</li>
+                                        <li><i class="fas fa-check"></i> Memoria: 8 GB RAM</li>
+                                        <li><i class="fas fa-check"></i> Gráficos: NVIDIA GT 1030</li>
+                                        <li><i class="fas fa-check"></i> Almacenamiento: 35 GB</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5>Recomendados</h5>
+                                    <ul class="requirements-list" id="modalGameReqRec">
+                                        <li><i class="fas fa-check"></i> SO: Windows 10 64-bit</li>
+                                        <li><i class="fas fa-check"></i> Procesador: Intel Core i7</li>
+                                        <li><i class="fas fa-check"></i> Memoria: 16 GB RAM</li>
+                                        <li><i class="fas fa-check"></i> Gráficos: NVIDIA GTX 1060</li>
+                                        <li><i class="fas fa-check"></i> SSD con 35 GB libres</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="game-price-lg free">GRATIS</div>
+                <a href="https://gofile.io/d/iWSIOl" class="btn btn-primary btn-lg" id="modalDownloadBtn" target="_blank">
+                    <i class="fas fa-download"></i> Descargar ahora
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>HAKARI COMMUNITY</h4>
+                    <div class="footer-about">
+                        <p>
+                            La mejor plataforma para descubrir y descargar juegos gratuitos. 
+                            Únete a nuestra creciente comunidad de gamers.
+                        </p>
+                        <div class="footer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="https://discord.com/invite/4BgUzQ4A5w" target="_blank"><i class="fab fa-discord"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Enlaces rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="#popular"><i class="fas fa-chevron-right"></i> Juegos Populares</a></li>
+                        <li><a href="#games"><i class="fas fa-chevron-right"></i> Todos los Juegos</a></li>
+                        <li><a href="#categories"><i class="fas fa-chevron-right"></i> Categorías</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Soporte</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Preguntas frecuentes</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Guías de instalación</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Reportar problema</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Términos de servicio</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Política de privacidad</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> DMCA</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Aviso legal</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">
+                    &copy; 2023 HAKARI COMMUNITY. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const nav = document.getElementById('nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = nav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Game Data
+        const games = {
+            game1: {
+                title: "R.E.P.O",
+                image: "https://cdn.discordapp.com/attachments/1278514498726002690/1355670140695478544/lu9GGul.jpeg?ex=67e9c5b4&is=67e87434&hm=bdd14271bf2c8a4cf1b3e004584ca4e5f4188158357adbd996d1a2a85a099745&",
+                desc: "R.E.P.O. es un juego de terror cooperativo en línea que incluye física, chat de voz de proximidad y monstruos aterradores. Tú y hasta 5 amigos pueden aventurarse en entornos aterradores para extraer objetos valiosos usando su herramienta de agarre basada en la física. Incluso los monstruos se ven afectados por la ley de gravedad de Newton.",
+                genre: "RPG • Aventura",
+                size: "35GB",
+                rating: "4.8",
+                reqMin: [
+                    "SO: Windows 7/8/10 64-bit",
+                    "Procesador: Intel Core 2 Duo E8400",
+                    "Memoria: 4 GB RAM",
+                    "Gráficos: Intel HD 3000",
+                    "Almacenamiento: 12 GB"
+                ],
+                reqRec: [
+                    "SO: Windows 10 64-bit",
+                    "Procesador: Core i5 6600",
+                    "Memoria:  8 GB de RAM",
+                    "Gráficos: GTX 970",
+                    "SSD con  4 GB"
+                ],
+                download: "https://gofile.io/d/iWSIOl"
+            },
+            game2: {
+                title: "Valorant",
+                image: "https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+                desc: "Valorant es un juego de disparos táctico 5v5 con personajes únicos y habilidades especiales. Combina la precisión de los shooters tradicionales con habilidades estratégicas. Perfecto para jugadores competitivos que buscan un juego con alto nivel de habilidad y trabajo en equipo. Cada personaje tiene habilidades únicas que pueden cambiar el curso de la partida.",
+                genre: "FPS • Competitivo",
+                size: "12GB",
+                rating: "4.7",
+                reqMin: [
+                    "SO: Windows 7/8/10 64-bit",
+                    "Procesador: Intel Core 2 Duo E8400",
+                    "Memoria: 4 GB RAM",
+                    "Gráficos: Intel HD 3000",
+                    "Almacenamiento: 12 GB"
+                ],
+                reqRec: [
+                    "SO: Windows 10 64-bit",
+                    "Procesador: Intel i3-4150",
+                    "Memoria: 8 GB RAM",
+                    "Gráficos: GeForce GT 730",
+                    "SSD con 12 GB libres"
+                ],
+                download: "#"
+            },
+            game3: {
+                title: "League of Legends",
+                image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+                desc: "League of Legends es el MOBA más popular del mundo con más de 140 campeones para dominar. Estrategia, trabajo en equipo y habilidad individual se combinan en partidas emocionantes de 20-40 minutos. Constantemente actualizado con nuevos campeones, modos de juego y eventos. El juego es completamente gratuito sin pay-to-win.",
+                genre: "MOBA • Estrategia",
+                size: "8GB",
+                rating: "4.5",
+                reqMin: [
+                    "SO: Windows 7",
+                    "Procesador: 3 GHz processor",
+                    "Memoria: 2 GB RAM",
+                    "Gráficos: NVidia GeForce 8800",
+                    "Almacenamiento: 8 GB"
+                ],
+                reqRec: [
+                    "SO: Windows 10",
+                    "Procesador: 3 GHz dual core",
+                    "Memoria: 4 GB RAM",
+                    "Gráficos: NVidia GTX 560",
+                    "SSD con 8 GB libres"
+                ],
+                download: "#"
+            },
+            game4: {
+                title: "Apex Legends",
+                image: "https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+                desc: "Apex Legends es un Battle Royale gratuito con personajes únicos y un sistema de ping revolucionario. Combina lo mejor de los shooters con habilidades de personajes en un entorno futurista. Actualizaciones estacionales con nuevos contenidos mantienen el juego fresco. El sistema de ping permite una comunicación avanzada sin necesidad de voz.",
+                genre: "Battle Royale • FPS",
+                size: "40GB",
+                rating: "4.6",
+                reqMin: [
+                    "SO: Windows 7 64-bit",
+                    "Procesador: Intel i3-6300",
+                    "Memoria: 6 GB RAM",
+                    "Gráficos: NVIDIA GT 640",
+                    "Almacenamiento: 40 GB"
+                ],
+                reqRec: [
+                    "SO: Windows 10 64-bit",
+                    "Procesador: Intel i5 3570K",
+                    "Memoria: 8 GB RAM",
+                    "Gráficos: NVIDIA GTX 970",
+                    "SSD con 40 GB libres"
+                ],
+                download: "#"
+            },
+            game5: {
+                title: "Fortnite",
+                image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+                desc: "Fortnite combina disparos con construcción en este popular Battle Royale con eventos en vivo. Con temporadas temáticas, colaboraciones con franquicias famosas y un modo creativo, Fortnite ofrece diversión constante para todos los jugadores. El juego es conocido por sus eventos en vivo que rompen récords de audiencia.",
+                genre: "Battle Royale • Construcción",
+                size: "30GB",
+                rating: "4.3",
+                reqMin: [
+                    "SO: Windows 7/8/10 64-bit",
+                    "Procesador: Core i3-3225",
+                    "Memoria: 8 GB RAM",
+                    "Gráficos: Intel HD 4000",
+                    "Almacenamiento: 30 GB"
+                ],
+                reqRec: [
+                    "SO: Windows 10 64-bit",
+                    "Procesador: Core i5-7300U",
+                    "Memoria: 16 GB RAM",
+                    "Gráficos: NVIDIA GTX 960",
+                    "SSD con 30 GB libres"
+                ],
+                download: "#"
+            },
+            game6: {
+                title: "Dota 2",
+                image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                desc: "Dota 2 es un MOBA complejo y estratégico con profundidad táctica y un competitivo profesional masivo. Con más de 120 héroes únicos, cada partida es diferente. El juego es completamente gratuito sin pay-to-win. El International, su torneo anual, ofrece los premios más grandes en la historia de los esports.",
+                genre: "MOBA • Estrategia",
+                size: "15GB",
+                rating: "4.4",
+                reqMin: [
+                    "SO: Windows 7/8/10",
+                    "Procesador: Dual core 2.8 GHz",
+                    "Memoria: 4 GB RAM",
+                    "Gráficos: NVIDIA 8600GT",
+                    "Almacenamiento: 15 GB"
+                ],
+                reqRec: [
+                    "SO: Windows 10",
+                    "Procesador: Quad core 3.5 GHz",
+                    "Memoria: 8 GB RAM",
+                    "Gráficos: NVIDIA GTX 650",
+                    "SSD con 15 GB libres"
+                ],
+                download: "#"
+            },
+            game7: {
+                title: "Warframe",
+                image: "https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+                desc: "Warframe es un juego de acción cooperativo con ninjas espaciales, personalización profunda y combate fluido. Con más de 40 Warframes únicos y cientos de armas, el juego ofrece un progreso constante y contenido para miles de horas. La comunidad es conocida por ser una de las más amigables y colaborativas.",
+                genre: "Shooter • RPG",
+                size: "35GB",
+                rating: "4.2",
+                reqMin: [
+                    "SO: Windows 7 64-bit",
+                    "Procesador: Intel i3-2100",
+                    "Memoria: 4 GB RAM",
+                    "Gráficos: NVIDIA GTX 650",
+                    "Almacenamiento: 35 GB"
+                ],
+                reqRec: [
+                    "SO: Windows 10 64-bit",
+                    "Procesador: Intel i7-3770",
+                    "Memoria: 8 GB RAM",
+                    "Gráficos: NVIDIA GTX 1060",
+                    "SSD con 35 GB libres"
+                ],
+                download: "#"
+            },
+            game8: {
+                title: "Path of Exile",
+                image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+                desc: "Path of Exile es un RPG de acción oscuro y complejo con un sistema de pasivas masivo y temporadas regulares. Considerado el sucesor espiritual de Diablo II, ofrece una profundidad de personalización sin igual en el género. Las ligas temporales reinician el progreso cada pocos meses, permitiendo a todos comenzar de nuevo en igualdad de condiciones.",
+                genre: "ARPG • Hack and Slash",
+                size: "25GB",
+                rating: "4.5",
+                reqMin: [
+                    "SO: Windows 7",
+                    "Procesador: x86 2.6GHz",
+                    "Memoria: 4 GB RAM",
+                    "Gráficos: NVIDIA GTX 650 Ti",
+                    "Almacenamiento: 25 GB"
+                ],
+                reqRec: [
+                    "SO: Windows 10",
+                    "Procesador: x64 3.2GHz",
+                    "Memoria: 8 GB RAM",
+                    "Gráficos: NVIDIA GTX 1050 Ti",
+                    "SSD con 25 GB libres"
+                ],
+                download: "#"
+            },
+            game9: {
+                title: "Rocket League",
+                image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                desc: "Rocket League es fútbol con coches acrobáticos en este divertido y competitivo juego multijugador. Fácil de aprender pero difícil de dominar, con un alto techo de habilidad y partidas rápidas de 5 minutos. El juego ha crecido hasta incluir varios modos de juego además del fútbol, como hockey y baloncesto.",
+                genre: "Deportes • Coches",
+                size: "10GB",
+                rating: "4.7",
+                reqMin: [
+                    "SO: Windows 7 o superior",
+                    "Procesador: 2.5 GHz Dual core",
+                    "Memoria: 4 GB RAM",
+                    "Gráficos: NVIDIA GeForce 760",
+                    "Almacenamiento: 10 GB"
+                ],
+                reqRec: [
+                    "SO: Windows 10",
+                    "Procesador: 3.0+ GHz Quad core",
+                    "Memoria: 8 GB RAM",
+                    "Gráficos: NVIDIA GTX 1060",
+                    "SSD con 10 GB libres"
+                ],
+                download: "#"
+            }
+        };
+        
+        // Modal Functions
+        function openModal(gameId) {
+            const game = games[gameId];
+            if (!game) return;
+            
+            document.getElementById('modalGameTitle').textContent = game.title;
+            document.getElementById('modalGameImage').src = game.image;
+            document.getElementById('modalGameImage').alt = game.title;
+            document.getElementById('modalGameDesc').textContent = game.desc;
+            document.getElementById('modalGameGenre').textContent = game.genre;
+            document.getElementById('modalGameSize').textContent = game.size;
+            document.getElementById('modalGameRating').textContent = game.rating;
+            document.getElementById('modalDownloadBtn').href = game.download;
+            
+            const reqMinList = document.getElementById('modalGameReqMin');
+            const reqRecList = document.getElementById('modalGameReqRec');
+            
+            reqMinList.innerHTML = '';
+            reqRecList.innerHTML = '';
+            
+            game.reqMin.forEach(req => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fas fa-check"></i> ${req}`;
+                reqMinList.appendChild(li);
+            });
+            
+            game.reqRec.forEach(req => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fas fa-check"></i> ${req}`;
+                reqRecList.appendChild(li);
+            });
+            
+            document.getElementById('gameModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            document.getElementById('gameModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === document.getElementById('gameModal')) {
+                closeModal();
+            }
+        });
+        
+        // Search functionality
+        const searchBtn = document.querySelector('.search-btn');
+        const searchInput = document.querySelector('.search-input');
+        
+        searchBtn.addEventListener('click', searchGames);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchGames();
+            }
+        });
+        
+        function searchGames() {
+            const query = searchInput.value.trim().toLowerCase();
+            if (query) {
+                alert(`Buscando: ${query}\nEn una implementación real, esto filtraría los juegos.`);
+                // Aquí iría la lógica para filtrar y mostrar los juegos que coincidan
+            }
+        }
+        
+        // Filter buttons
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                // Aquí iría la lógica para filtrar por categoría
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (nav.classList.contains('active')) {
+                        nav.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
